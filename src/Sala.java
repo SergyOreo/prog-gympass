@@ -32,6 +32,7 @@ public class Sala {
      * Sala con sus atributos
      * @return String de Sala con atributos
      */
+    @Override
     public String toString(){
         return "Sala : {codigoSala = " + codigoSala + ", descripcion = " + descripcion + "}";
     }
