@@ -78,4 +78,42 @@ public class Gimnasio {
         return socio;
     }
 
+    /**
+     * Elimina al socio de listaSocios y devuelve el socio eliminado
+     * @param numero del socio al que se quiere eliminar de la lista
+     * @return Socio expulsado
+     */
+    public Socio expulsarSocio(int numero){
+        Socio socioAExpulsar;
+        int posicionSocio;
+
+        socioAExpulsar = buscarSocioPorNumero(numero);
+        if (socioAExpulsar != null) {
+            posicionSocio = buscarPosicionSocio(numero);
+            if (posicionSocio != -1) {
+                listaSocios[posicionSocio] = null;
+            }
+        }
+
+        return socioAExpulsar;
+    }
+
+    /**
+     * Busca un socio por su numero de socio y devuelve la posicion en listaSocios
+     * @param numero del socio a buscar
+     * @return posicion del socio en listaSocios / -1 si no se encuentra
+     */
+    public int buscarPosicionSocio(int numero){
+        int posicionSocio = -1;
+        boolean seguirBuscando = true;
+
+        for (int i = 0; i < CANTIDAD_MAX_SOCIOS && seguirBuscando; i++) {
+            if (numero == listaSocios[i].getNumeroSocio()) {
+                posicionSocio = i;
+                seguirBuscando = false;
+            }
+        }
+
+        return posicionSocio;
+    }
 }
